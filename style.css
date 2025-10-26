@@ -1,0 +1,381 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #000000, #1a0033, #330066);
+    color: white;
+    min-height: 100vh;
+    padding: 20px;
+    overflow-x: hidden;
+    position: relative;
+}
+
+.container {
+    max-width: 400px;
+    margin: 0 auto;
+    position: relative;
+}
+
+/* 🔥 ЯРКИЙ ЛОГОТИП */
+.game-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.main-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 10px;
+}
+
+.logo-icon {
+    font-size: 3.5em;
+    background: linear-gradient(45deg, #ff00ff, #00ffff, #ffff00);
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: rotate 3s linear infinite, glow 2s ease-in-out infinite alternate;
+    box-shadow: 0 0 30px #ff00ff;
+}
+
+@keyframes rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+@keyframes glow {
+    from { box-shadow: 0 0 20px #ff00ff, 0 0 30px #00ffff; }
+    to { box-shadow: 0 0 30px #00ffff, 0 0 40px #ffff00; }
+}
+
+.logo-text h1 {
+    font-size: 2.2em;
+    background: linear-gradient(45deg, #ff00ff, #00ffff, #ffff00);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: bold;
+    text-shadow: 0 0 20px rgba(255, 0, 255, 0.5);
+}
+
+.logo-subtitle {
+    color: #00ffff;
+    font-size: 1em;
+    letter-spacing: 3px;
+    text-shadow: 0 0 10px #00ffff;
+}
+
+/* 💰 КАРТОЧКА БАЛАНСА */
+.balance-card {
+    background: linear-gradient(135deg, #ff00ff, #3300ff);
+    padding: 25px;
+    border-radius: 25px;
+    text-align: center;
+    margin-bottom: 25px;
+    box-shadow: 0 10px 40px rgba(255, 0, 255, 0.4);
+    border: 2px solid #00ffff;
+    animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-5px); }
+}
+
+.balance-card h3 {
+    font-size: 1.2em;
+    color: #ffffff;
+    margin-bottom: 15px;
+    text-shadow: 0 0 10px #ffffff;
+}
+
+.balance-amount {
+    font-size: 3em;
+    font-weight: bold;
+    background: linear-gradient(45deg, #ffff00, #ffffff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 0 20px #ffff00;
+    margin: 10px 0;
+}
+
+.ton-balance {
+    color: #00ffff;
+    font-size: 1.3em;
+    font-weight: bold;
+    text-shadow: 0 0 15px #00ffff;
+}
+
+/* 🎯 КНОПКИ ДЕПОЗИТОВ */
+.deposit-section {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    border-radius: 20px;
+    margin-bottom: 20px;
+    border: 1px solid #00ffff;
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
+}
+
+.deposit-section h3 {
+    text-align: center;
+    color: #ffff00;
+    margin-bottom: 20px;
+    font-size: 1.3em;
+    text-shadow: 0 0 10px #ffff00;
+}
+
+.deposit-buttons {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    max-height: 300px;
+    overflow-y: auto;
+    padding-right: 5px;
+}
+
+.deposit-buttons::-webkit-scrollbar {
+    width: 6px;
+}
+
+.deposit-buttons::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 3px;
+}
+
+.deposit-buttons::-webkit-scrollbar-thumb {
+    background: linear-gradient(45deg, #ff00ff, #00ffff);
+    border-radius: 3px;
+}
+
+.deposit-btn {
+    background: linear-gradient(135deg, #ff00ff, #ff0066);
+    color: white;
+    border: none;
+    padding: 15px 8px;
+    border-radius: 12px;
+    font-size: 1em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(255, 0, 255, 0.4);
+    text-shadow: 0 0 8px rgba(255, 255, 255, 0.5);
+}
+
+.deposit-btn.vip {
+    background: linear-gradient(135deg, #ffff00, #ff9900);
+    color: #000;
+    font-size: 1.1em;
+    padding: 16px 8px;
+}
+
+.deposit-btn.premium {
+    background: linear-gradient(135deg, #00ff00, #00cc00);
+    color: #000;
+    font-size: 1.1em;
+    padding: 17px 8px;
+    box-shadow: 0 4px 20px rgba(0, 255, 0, 0.5);
+}
+
+.deposit-btn.legendary {
+    background: linear-gradient(135deg, #ff0000, #ff6600, #ffff00);
+    color: #000;
+    font-size: 1.2em;
+    padding: 18px 8px;
+    box-shadow: 0 4px 25px rgba(255, 0, 0, 0.6);
+    animation: pulseLegendary 2s infinite;
+}
+
+@keyframes pulseLegendary {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+}
+
+.deposit-btn:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 6px 20px rgba(255, 0, 255, 0.6);
+}
+
+.deposit-btn:active {
+    transform: translateY(0) scale(1);
+}
+
+/* 💸 КНОПКА ВЫВОДА */
+.withdraw-section {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.withdraw-btn {
+    background: linear-gradient(135deg, #ffff00, #ff6600);
+    color: #000;
+    border: none;
+    padding: 20px 30px;
+    border-radius: 15px;
+    font-size: 1.2em;
+    font-weight: bold;
+    cursor: pointer;
+    width: 100%;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 25px rgba(255, 255, 0, 0.5);
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.withdraw-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 30px rgba(255, 255, 0, 0.7);
+}
+
+.commission-info {
+    margin-top: 12px;
+    color: #ff00ff;
+    font-size: 1em;
+    text-shadow: 0 0 10px #ff00ff;
+}
+
+/* 👑 ПАНЕЛЬ АДМИНИСТРАТОРА */
+.admin-panel {
+    background: linear-gradient(135deg, #00ff00, #006600);
+    padding: 20px;
+    border-radius: 20px;
+    border: 2px solid #ffff00;
+    box-shadow: 0 0 25px rgba(0, 255, 0, 0.4);
+}
+
+.admin-panel h3 {
+    text-align: center;
+    color: #ffff00;
+    margin-bottom: 20px;
+    font-size: 1.3em;
+    text-shadow: 0 0 10px #ffff00;
+}
+
+.admin-stats div {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 12px;
+    margin: 10px 0;
+    border-radius: 10px;
+    font-size: 1em;
+    border: 1px solid #ffff00;
+}
+
+/* 🔗 КНОПКА КОШЕЛЬКА */
+.wallet-section {
+    margin-bottom: 20px;
+}
+
+.wallet-btn {
+    background: linear-gradient(135deg, #00ffff, #0088ff);
+    color: #000;
+    border: none;
+    padding: 15px 20px;
+    border-radius: 12px;
+    font-size: 1em;
+    font-weight: bold;
+    cursor: pointer;
+    width: 100%;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 20px rgba(0, 255, 255, 0.4);
+}
+
+.wallet-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 7px 25px rgba(0, 255, 255, 0.6);
+}
+
+.wallet-info {
+    background: rgba(0, 255, 255, 0.2);
+    padding: 12px;
+    border-radius: 10px;
+    margin-top: 10px;
+    font-size: 0.9em;
+    word-break: break-all;
+    border: 1px solid #00ffff;
+}
+
+/* ✨ ДОПОЛНИТЕЛЬНЫЕ ЭФФЕКТЫ */
+.particles {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: -1;
+}
+
+.particle {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: #ff00ff;
+    border-radius: 50%;
+    animation: floatParticle 5s infinite linear;
+}
+
+@keyframes floatParticle {
+    0% {
+        transform: translateY(100vh) translateX(0);
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-100px) translateX(100px);
+        opacity: 0;
+    }
+}
+
+/* 👤 АВТОРСКАЯ ПОДПИСЬ */
+.creator-signature {
+    text-align: center;
+    margin-top: 30px;
+    padding: 15px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    border: 1px solid #ff00ff;
+}
+
+.creator-text {
+    font-size: 1.1em;
+    background: linear-gradient(45deg, #ff00ff, #00ffff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: bold;
+    text-shadow: 0 0 15px rgba(255, 0, 255, 0.5);
+}
+
+.creator-name {
+    font-size: 1.3em;
+    background: linear-gradient(45deg, #ffff00, #ff6600);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: bold;
+    text-shadow: 0 0 20px rgba(255, 255, 0, 0.5);
+}
+
+/* 📱 АДАПТИВНОСТЬ */
+@media (max-width: 480px) {
+    .deposit-buttons {
+        grid-template-columns: 1fr;
+        max-height: 400px;
+    }
+    
+    .balance-amount {
+        font-size: 2.5em;
+    }
+    
+    .logo-icon {
+        width: 70px;
+        height: 70px;
+        font-size: 3em;
+    }
+}
